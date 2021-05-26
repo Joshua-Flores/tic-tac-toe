@@ -16,11 +16,26 @@ const playerFactory = (name, mark) => {
   return { getName, getMark };
 };
 
-const Player1 = playerFactory("josh", "X");
-const Player2 = playerFactory("computer", "O");
+let Player1 = "";
+let Player2 = "";
 
 // gameboard controller
 const gameController = (() => {
+  const form = document.getElementById("startForm");
+  form.addEventListener("submit", (e) => {
+    e.preventDefault();
+    const player1Name = document.getElementById("player1Name").value
+      ? document.getElementById("player1Name").value
+      : "Player 1";
+    const player2Name = document.getElementById("player2Name").value
+      ? document.getElementById("player2Name").value
+      : "Player 1";
+    Player1 = playerFactory(player1Name, "X");
+    Player2 = playerFactory(player2Name, "O");
+    form.setAttribute("style", "display:none");
+    document.getElementById("board").setAttribute("style", "display:grid");
+  });
+
   //initialize the game board with values
   const turnHistory = [
     { square: 0, value: "" },

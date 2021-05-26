@@ -9,8 +9,15 @@ body {
 }
 
 h1 {
-  font-size: 32px;
+  font-size: 48px;
   color: white;
+  margin: 0px;
+}
+
+p {
+  color: white;
+  margin: 8px auto 24px auto;
+  opacity: 1;
 }
 
 body {
@@ -21,8 +28,55 @@ body {
   flex-direction: column;
 }
 
-div.container {
+.form-container {
+  max-width: 400px;
+  margin: auto;
 }
+
+form {
+  display: flex;
+  flex-direction: column;
+  background-color: hsla(0, 0%, 10%, 1);
+  padding: 24px;
+}
+
+form * {
+  height: 48px;
+}
+
+form input {
+  margin-bottom: 16px;
+  border: 0px solid black;
+  background-color: hsla(0, 0%, 14%, 1);
+  font-size: 20px;
+  padding-left: 16px;
+  border-radius: 4px;
+  color: white;
+}
+
+form input:hover {
+  cursor: pointer;
+}
+
+form input:focus {
+  outline: none;
+  border: 1px solid hsla(275, 65%, 32%, 1);
+}
+
+form button {
+  background-color: hsla(275, 65%, 32%, 1);
+  border: 1px solid hsla(275, 65%, 32%, 1);
+  color: white;
+  font-size: 24px;
+  font-weight: bold;
+  border-radius: 4px;
+  transition: 0.15s;
+}
+
+form button:hover {
+  background-color: hsla(275, 65%, 52%, 1);
+}
+
 div.board {
   margin: auto;
   height: 400px;

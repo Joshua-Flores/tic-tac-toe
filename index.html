@@ -9,8 +9,16 @@
   </head>
   <body>
     <div class="container">
-      <h1>TIC TAC TOE</h1>
-      <div class="board">
+      <div class="form-container">
+        <h1>TIC-TAC-TOE</h1>
+        <p><i>...or noughts and crosses if you're British</i></p>
+        <form action="" id="startForm">
+          <input type="text" id="player1Name" placeholder="Player 1 Name" />
+          <input type="text" id="player2Name" placeholder="Player 2 Name" />
+          <button type="submit">START GAME</button>
+        </form>
+      </div>
+      <div class="board" id="board" style="display: none">
         <div class="square" id="square0"></div>
         <div class="square" id="square1"></div>
         <div class="square" id="square2"></div>
