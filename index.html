@@ -5,16 +5,29 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Tic-Tac-Toe</title>
+
     <link rel="stylesheet" href="./styles.css" />
   </head>
   <body>
     <div class="container">
-      <div class="form-container">
+      <header id="header">
         <h1>TIC-TAC-TOE</h1>
         <p><i>...or noughts and crosses if you're British</i></p>
+      </header>
+      <div class="form-container">
         <form action="" id="startForm">
-          <input type="text" id="player1Name" placeholder="Player 1 Name" />
-          <input type="text" id="player2Name" placeholder="Player 2 Name" />
+          <input
+            type="text"
+            id="player1Name"
+            name="player1Name"
+            placeholder="Player 1 Name"
+          />
+          <input
+            type="text"
+            id="player2Name"
+            name="player2Name"
+            placeholder="Player 2 Name"
+          />
           <button type="submit">START GAME</button>
         </form>
       </div>
@@ -28,6 +41,7 @@
         <div class="square" id="square6"></div>
         <div class="square" id="square7"></div>
         <div class="square" id="square8"></div>
+        <button id="btn-reset">RESET</button>
       </div>
     </div>
     <script src="./app.js"></script>
