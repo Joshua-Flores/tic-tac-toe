@@ -1,6 +1,8 @@
 html,
 body {
   height: 100%;
+  width: 100%;
+  margin: 0;
 }
 
 * {
@@ -23,12 +25,19 @@ p {
 body {
   background-color: #111;
   background-image: url("./images/background.svg");
-  background-size: 50%;
   background-position: left;
-  text-align: center;
   display: flex;
-  justify-content: center;
   flex-direction: column;
+  justify-content: space-between;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 2;
+  justify-content: center;
+  text-align: center;
+  padding: 16px;
 }
 
 .form-container {
@@ -97,8 +106,8 @@ form button:focus,
 div.board {
   margin: auto;
   display: grid;
-  width: 500px;
-  height: 590px;
+  width: 400px;
+  height: 470px;
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: 1fr 1fr 1fr 0.5fr;
   column-gap: 8px;
@@ -136,6 +145,25 @@ div.square {
 div.square:hover {
   border: 2px solid hsla(275, 65%, 62%, 1);
   cursor: pointer;
+}
+
+footer {
+  background-color: hsla(0, 0%, 12%, 1);
+  padding: 24px;
+  text-align: center;
+}
+
+footer p {
+  margin: auto auto 8px auto;
+  font-weight: bold;
+}
+
+footer a {
+  color: hsla(275, 65%, 62%, 1);
+}
+
+footer a:hover {
+  color: white;
 }
 
 @media (max-width: 576px) {

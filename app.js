@@ -39,7 +39,7 @@ const gameController = (() => {
       : "Player 1";
     const player2Name = document.getElementById("player2Name").value
       ? document.getElementById("player2Name").value
-      : "Player 1";
+      : "Player 2";
     Player1 = playerFactory(player1Name, "X");
     Player2 = playerFactory(player2Name, "O");
     form.setAttribute("style", "display:none");
@@ -73,16 +73,11 @@ const gameController = (() => {
       // first check if the game is active...
       if (gameIsActive) {
         addTurn(i, player1Turn ? Player1.getMark() : Player2.getMark());
-
-        // swap whos turn it is
-        player1Turn = !player1Turn;
-
         //render the board
         gameBoard.renderBoard(turnHistory);
         gameBoard.displayPlayer(
           player1Turn ? Player1.getName() : Player2.getName()
         );
-
         //check for a winner
         checkForWinner();
       }
@@ -96,6 +91,8 @@ const gameController = (() => {
     // ensure square is blank, if so - update the value
     if (!targetSquare.value) {
       targetSquare.value = mark;
+      // swap whos turn it is
+      player1Turn = !player1Turn;
     }
   };
 
@@ -120,10 +117,13 @@ const gameController = (() => {
 
       if (
         (moves.includes(0) && moves.includes(1) && moves.includes(2)) ||
-        (moves.includes(3) && moves.includes(4) && moves.includes(5)) ||
-        (moves.includes(6) && moves.includes(7) && moves.includes(8)) ||
+        (moves.includes(0) && moves.includes(3) && moves.includes(6)) ||
         (moves.includes(0) && moves.includes(4) && moves.includes(8)) ||
-        (moves.includes(2) && moves.includes(4) && moves.includes(6))
+        (moves.includes(1) && moves.includes(4) && moves.includes(7)) ||
+        (moves.includes(2) && moves.includes(5) && moves.includes(8)) ||
+        (moves.includes(2) && moves.includes(4) && moves.includes(6)) ||
+        (moves.includes(3) && moves.includes(4) && moves.includes(5)) ||
+        (moves.includes(6) && moves.includes(7) && moves.includes(8))
       ) {
         gameIsActive = false;
         alertWinner();
@@ -149,11 +149,9 @@ const gameController = (() => {
     gameIsActive = true;
     player1Turn = true;
     gameBoard.renderBoard(turnHistory);
-    console.log(turnHistory);
     gameBoard.displayPlayer(
       player1Turn ? Player1.getName() : Player2.getName()
     );
-    console.log(gameIsActive);
   });
 
   return { turnHistory };
